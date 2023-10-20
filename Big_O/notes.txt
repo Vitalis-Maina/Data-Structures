@@ -7,3 +7,6 @@ Different complexity types falling under Big O
 
 linear time complexity - if the proccessing time or storage space
 is directly proportional to the number of input to be processed.
+
+Quadratic time complexity - if the proccessing or storage space is directly
+proportional the square of the number of input elements.
