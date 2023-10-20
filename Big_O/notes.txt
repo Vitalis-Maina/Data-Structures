@@ -1,0 +1,9 @@
+Different complexity types falling under Big O
+
+1.linear time O(n)
+2.Logarithimic time O(log n)
+3.Cubic time O(n^3)
+4.Quadratic time O(n^2)
+
+linear time complexity - if the proccessing time or storage space
+is directly proportional to the number of input to be processed.
