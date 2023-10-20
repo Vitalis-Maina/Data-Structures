@@ -8,37 +8,31 @@ type Node struct {
 	Right *Node
 }
 
-//insert operation
-
-func (n *Node) Insert(k int) {
-
-	if n.Key < k {
-		//move right
-		if n.Right == nil {
-			n.Right = &Node{Key: k}
-		} else {
-			n.Right.Insert(k)
-		}
-	} else if n.Key > k {
-		//move left
-		if n.Left == nil {
-			n.Left = &Node{Key: k}
-		} else {
-			n.Left.Insert(k)
-		}
+// Insert operation
+func Insert(n *Node, k int) *Node {
+	if n == nil {
+		return &Node{Key: k}
 	}
-
+	if n.Key < k {
+		// Move right
+		n.Right = Insert(n.Right, k)
+	} else if n.Key > k {
+		// Move left
+		n.Left = Insert(n.Left, k)
+	}
+	return n
 }
 
+// Search operation
 func (n *Node) Search(k int) bool {
 	if n == nil {
 		return false
 	}
 	if n.Key < k {
-		//move right
+		// Move right
 		return n.Right.Search(k)
 	} else if n.Key > k {
-		//move left
+		// Move left
 		return n.Left.Search(k)
 	}
 	return true
@@ -46,17 +40,17 @@ func (n *Node) Search(k int) bool {
 
 func main() {
 
-	binaryTree := &Node{Key: 100}
+	var binaryTree *Node // Initialize root as nil
 	fmt.Println(binaryTree)
-	binaryTree.Insert(34)
-	binaryTree.Insert(4)
-	binaryTree.Insert(134)
-	binaryTree.Insert(78)
-	binaryTree.Insert(89)
-	binaryTree.Insert(52)
-	binaryTree.Insert(14)
-	binaryTree.Insert(178)
+	binaryTree = Insert(binaryTree, 34)
+	binaryTree = Insert(binaryTree, 4)
+	binaryTree = Insert(binaryTree, 134)
+	binaryTree = Insert(binaryTree, 78)
+	binaryTree = Insert(binaryTree, 89)
+	binaryTree = Insert(binaryTree, 52)
+	binaryTree = Insert(binaryTree, 14)
+	binaryTree = Insert(binaryTree, 178)
 	fmt.Println(binaryTree)
-	fmt.Println(binaryTree.Search(100))
+	fmt.Println(binaryTree.Search(52))
 
 }
